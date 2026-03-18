@@ -1,14 +1,6 @@
-sudo apt update
-sudo apt install fontconfig openjdk-17-jre -y
-
-wget -q -O - https://pkg.jenkins.io/debian-stable/jenkins.io.key | sudo tee /usr/share/keyrings/jenkins-keyring.asc > /dev/null
-
-echo "deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc] https://pkg.jenkins.io/debian-stable binary/" | sudo tee /etc/apt/sources.list.d/jenkins.list > /dev/null
-
-sudo apt update
-sudo apt install jenkins -y
-
-sudo systemctl enable jenkins
-sudo systemctl start jenkins
-
-systemctl status jenkins
+region: "us-east-1"
+instance_type: "t2.micro"
+ami_id: "ami-0fc5d935ebf8bc3bc"   
+disk_size: 20
+key_name: "mynewkey"
+security_group_name: "web-sg"
