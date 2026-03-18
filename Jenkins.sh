@@ -49,11 +49,12 @@
         instance_type: "{{ instance_type }}"
         region: "{{ region }}"
         image_id: "{{ ami_id }}"
-        security_groups: [ "{{ security_group_name }}" ]
-        volumes:
+        security_groups: ["{{ security_group_name }}"]
+        block_device_mappings:
           - device_name: /dev/sda1
-            volume_size: "{{ disk_size }}"
-            volume_type: gp2
+            ebs:
+              volume_size: "{{ disk_size }}"
+              volume_type: gp2
         wait: yes
       register: ec2
 
