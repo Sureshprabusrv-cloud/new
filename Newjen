@@ -1,39 +1,15 @@
-# --- Task 2: Create Branches and Feature 1 ---
-# 1. Create the branches
-git branch feature1
-git branch feature2
-
-# 2. Update hello.py on feature1
-git checkout feature1
-echo 'print("hello people")' > hello.py
-git add hello.py
-git commit -m "Update hello.py in feature1"
-
-# 3. Merge feature1 into master (Fast-forward)
-git checkout master
-git merge feature1
-
-# --- Task 2: Feature 2 and Conflict Setup ---
-# 4. Update hello.py on feature2
-git checkout feature2
-echo 'print("keep playing")' > hello.py
-git add hello.py
-git commit -m "Update hello.py in feature2"
-
-# 5. Attempt to merge (This triggers the conflict)
-git checkout master
-git merge feature2
-
-# --- Task 4: Resolve Conflict ---
-# 6. Manually edit hello.py in the IDE to ONLY contain: print("keep playing")
-# Then finalize the merge:
-git add hello.py
-git commit -m "Resolve merge conflict"
-
-# --- Task 5: Cleanup and Renaming ---
-# 7. Delete feature1 branch
-git branch -d feature1
-
-# 8. Rename feature2 to update
-# (Note: If 'update' already exists, run 'git branch -D update' first)
-git branch -m feature2 update
+cat > calc.py << 'EOF'
+# Program to manipulate two numbers
+num1 = input('Enter first number: ')
+num2 = input('Enter second number: ')
+# calc operation
+sum = float(num1) + float(num2)
+diff = float(num1) - float(num2)
+mul = float(num1) * float(num2)
+div = float(num1) / float(num2)
+# Display the result
+print('The sum of {0} and {1} is {2}'.format(num1, num2, sum))
+print('The difference of {0} and {1} is {2}'.format(num1, num2, diff))
+print('The product of {0} and {1} is {2}'.format(num1, num2, mul))
+print('The division of {0} and {1} is {2}'.format(num1, num2, div))
+EOF
